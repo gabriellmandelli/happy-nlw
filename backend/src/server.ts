@@ -2,10 +2,11 @@ import express from 'express'
 
 import './database/connection'
 
-const app = express();
+import routes from './routes'
 
-app.get('/users', (request, response) => {
-    return response.json({message : 'Teste'})
-})
+const app = express()
 
-app.listen(3333);
+app.use(express.json())
+app.use(routes)
+
+app.listen(3333)
